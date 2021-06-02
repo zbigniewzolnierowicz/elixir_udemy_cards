@@ -32,4 +32,10 @@ defmodule Cards do
       {:error, _reason} -> "That binary does not exist."
     end
   end
+
+  def create_hand(amount) do
+    Cards.create_deck
+      |> Cards.shuffle
+      |> Cards.deal(amount)
+  end
 end
