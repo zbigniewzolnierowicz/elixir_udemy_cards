@@ -37,6 +37,20 @@ defmodule Cards do
     Enum.shuffle(unshuffled_deck)
   end
 
+  @doc """
+    Determines, whether or not a card is inside of a deck or hand
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Jack of Clubs")
+      true
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Jack of Sauce")
+      false
+
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
