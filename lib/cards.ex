@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc """
+    Provides methods for deck stuff idk lol
+  """
+
+  @doc """
+    Returns a list of strings representing a deck of cards
+  """
   def create_deck do
     values = [
       "Ace",
@@ -23,6 +30,9 @@ defmodule Cards do
     end
   end
 
+  @doc """
+    Shuffles the deck provided by the `unshuffled_deck` argument.
+  """
   def shuffle(unshuffled_deck) do
     Enum.shuffle(unshuffled_deck)
   end
@@ -31,9 +41,19 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
+  @doc """
+  Creates a hand of cards with a certain amount of cards, described with the `amount` argument.
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> {hand, _deck} = Cards.deal(deck, 5)
+      iex> hand
+      ["Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades", "Five of Spades"]
+
+  """
   def deal(deck, amount) do
-    {hand, _rest_of_deck} = Enum.split(deck, amount)
-    hand
+    Enum.split(deck, amount)
   end
 
   def save(hand, filename) do
