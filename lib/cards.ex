@@ -17,6 +17,9 @@ defmodule Cards do
   end
 
   def deal(deck, amount) do
-    Enum.split(deck, amount)
+    { hand, _rest_of_deck } = Enum.split(deck, amount)
+    hand
+  end
+
   end
 end
